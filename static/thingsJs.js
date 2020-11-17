@@ -24,7 +24,7 @@ function mapDraw() {    //지도 생
             locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
             var message = '<div style="padding:5px;">여기에 계신가요?!</div>'; // 인포윈도우에 표시될 내용입니다
 
-            var geocoder = new kakao.maps.services.Geocoder();
+            // var geocoder = new kakao.maps.services.Geocoder();
             // var message = maps.InfoWindow({zIndex:1});new kakao.
 
             // 마커와 인포윈도우를 표시합니다
