@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>EveryDay RUN</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f45f8cbe09b50c466e9610f5a800a99c&libraries=services"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script type="text/javascript" src="../static/thingsJs.js"></script>
     <meta property="og:title" content="Everyday RUN" />
-<meta property="og:description" content="운동의 생활화!!" />
+<meta property="og:description" content="서울 지역 표시" />
 <meta property="og:image" content="{{ url_for('static', filename='Runner_img.jpg') }}" />
 
 </head>
@@ -18,7 +21,7 @@
 <!--오늘의 날씨 : -->
 <div>희망 거리(km) : <input type="number" id="distance" onkeypress="enterkey()"><input type="button" value="검색" onclick="radiusCircle(locPosition)"></div>
 <div id="map" style="width:500px;height:400px;"></div>
-
+<div id="recom"></div>
 
 
 
