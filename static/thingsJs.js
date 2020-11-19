@@ -22,7 +22,7 @@ function mapDraw() {    //지도 생성
     map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 
 
-    // HTML5의 geolocation으로 사용할 수 있는지 확인합니다
+    // HTML5의 geolocation으로 사용할 수 있는지 확인
     if (navigator.geolocation) {
 
         // GeoLocation을 이용해서 접속 위치를 얻어옵니다
@@ -37,17 +37,15 @@ function mapDraw() {    //지도 생성
 
             console.log("lat : " + lat);
             console.log("lon : " + lon);
-            locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+            locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성
             var message = '<div style="padding:5px;">현재 위치</div>'; // 인포윈도우에 표시될 내용입니다
             document.getElementById("curLoc").innerHTML = "현재 위치 : " + lat + " / " + lon;
             var geocoder = new kakao.maps.services.Geocoder();
             // var message = maps.InfoWindow({zIndex:1});new kakao.
 
-            // 마커와 인포윈도우를 표시합니다
-            // radiusCircle(locPosition);
+            // 마커와 인포윈도우를 표시
             displayMarker(locPosition, message);
             // getLocation(locPosition);
-
 
         });
 
@@ -58,17 +56,6 @@ function mapDraw() {    //지도 생성
 
         displayMarker(locPosition, message);
     }
-}
-
-
-function searchAddrFromCoords(coords, callback) {
-    // 좌표로 행정동 주소 정보를 요청합니다
-    geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);
-}
-
-function searchDetailAddrFromCoords(coords, callback) {
-    // 좌표로 법정동 상세 주소 정보를 요청합니다
-    geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
 }
 
 // 지도에 마커와 인포윈도우를 표시하는 함수입니다
@@ -95,9 +82,18 @@ function displayMarker(locPosition, message) {
 
     // 지도 중심좌표를 접속위치로 변경합니다
     map.setCenter(locPosition);
-
-
 }
+
+function searchAddrFromCoords(coords, callback) {
+    // 좌표로 행정동 주소 정보를 요청합니다
+    geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);
+}
+
+function searchDetailAddrFromCoords(coords, callback) {
+    // 좌표로 법정동 상세 주소 정보를 요청합니다
+    geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
+}
+
 
 function getLocation(locPosition) {
     if (navigator.geolocation) { // GPS를 지원하면
