@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>EveryDay RUN</title>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f45f8cbe09b50c466e9610f5a800a99c"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f45f8cbe09b50c466e9610f5a800a99c&libraries=services"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script type="text/javascript" src="../static/thingsJs.js"></script>
@@ -12,13 +12,13 @@
 <meta property="og:image" content="{{ url_for('static', filename='Runner_img.jpg') }}" />
 
 </head>
-<body>
+<body onload="mapDraw()">
 
-현재 위치 :<p></p><script>getLocation()</script>
-오늘의 날씨 :
-<div>희망 거리(km) : <input type="number" id="distance"><input type="button" value="검색" onclick="radiusCircle(locPosition)"></div>
+<div id="curLoc">현재 위치 : </div>
+<!--오늘의 날씨 : -->
+<div>희망 거리(km) : <input type="number" id="distance" onkeypress="enterkey()"><input type="button" value="검색" onclick="radiusCircle(locPosition)"></div>
 <div id="map" style="width:500px;height:400px;"></div>
-<script>mapDraw()</script>
+
 
 
 
